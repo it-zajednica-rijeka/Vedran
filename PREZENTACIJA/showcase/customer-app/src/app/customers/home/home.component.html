@@ -1,0 +1,22 @@
+<div class="m-4">
+    {{ 'demo.greeting' | translate: {'name':'Vedran!'} }}
+    <table class="table">
+        <tr *ngFor="let p of badgesList?.badges; index as i">
+          <td>{{p.id | number: '3.1-5': locale}}</td>
+          <td>{{p.name | uppercase}}</td>
+          <td>{{p.body}}</td>
+          <!-- <td>{{p.earned_date | date:'dd. MMMM yyyy. HH:mm:ss z':'GMT'}}</td> -->
+          <td [ngStyle]="{'background-color': p.id < 1000 ? 'red' : 'green'}">{{p.earned_date | date : 'fullDate' : locale | lowercase }}</td>
+          <td><img [src]="p.icon_url" width="50px" height="50px"></td>
+          <td>
+              <ul>
+                  <li *ngFor="let course of p?.courses">
+                      <span class="badge badge-secondary">{{course?.badge_count | number: '3.0-0'}}</span>
+                      <i class="fas fa-globe mx-2"></i>
+                      {{course.title}}
+                  </li>
+              </ul>
+          </td>
+        </tr>
+      </table>
+</div>

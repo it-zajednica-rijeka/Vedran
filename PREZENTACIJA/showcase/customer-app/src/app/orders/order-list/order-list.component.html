@@ -1,0 +1,20 @@
+
+<div class="m-4">
+
+    <select [(ngModel)]="selectedId" class="col-5 custom-select m-3" (change)="changeCustomer($event)">
+        <option value="" disabled>Choose customer</option>
+        <option *ngFor="let c of customerList" [ngValue]="c.id">{{c.name}}</option>
+    </select>
+    <div class="w-100 ml-3">
+        {{selectedId}}
+    </div>
+
+    <table class="table">
+        <tr *ngFor="let p of customerPosts; index as i">
+          <td>{{p.id}}</td>
+          <td>{{p.title | uppercase}}</td>
+          <td>{{p.body}}</td>
+        </tr>
+      </table>
+</div>
+

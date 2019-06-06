@@ -1,0 +1,38 @@
+<div class="m-4">
+  <button class="m-2" (click)="getList(4)">Str 1</button>
+  <button class="m-2" (click)="getList(4, 2)">Str 2</button>
+  <button class="m-2" (click)="getList(4, 3)">Str 3</button>
+  <button class="m-2" (click)="getList(4, 4)">Str 4</button>
+
+  <h4 *ngIf="isLoading">Loading...</h4>
+
+  <div *ngIf="!isLoading">
+
+    <div class='row'>
+      <div class='col-md-2'>
+        <h5>Filter by: </h5>
+      </div>
+      <div class='col-md-4'>
+        <input type='text' [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6'>
+        <h5>Filtered by: {{listFilter}} </h5>
+      </div>
+    </div>
+
+    <table *ngIf="userList?.data" class="table w-100">
+      <tr *ngFor="let user of userList?.data | customerFilter:listFilter; index as i">
+        <td>{{i}}</td>
+        <td>{{user.id}}</td>
+        <td [ngClass]="{'red-color':user.first_name==='George'}">{{user.first_name | lowercase}}</td>
+        <td>{{user.last_name | uppercase}}</td>
+        <td class="col-4">
+          <app-star [rating]='user.id' (ratingClicked)='onRatingClicked($event)'></app-star>
+        </td>
+        <td class="col-2"><img [src]="user.avatar"></td>
+      </tr>
+    </table>
+  </div>
+</div>
