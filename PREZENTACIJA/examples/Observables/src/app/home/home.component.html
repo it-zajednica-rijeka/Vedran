@@ -1,0 +1,28 @@
+<h3>Playing with the observables!</h3>
+<hr>
+<p>In this component you can practice with some observables that you can find in the logic ts file.</p>
+<p>Look at the console to see the data emited.</p>
+<p>If you change the route and this component gets destroyed, subscriptions will be canceled.</p>
+<br>
+<form>
+  <div class="form-group">
+    <label for="activate-btn1">Click to subscribe to a timer Observable</label>
+    <input type="button" class="form-control btn btn-primary" id="activate-btn1" (click)="suscribeToTimerObservable()" value="Subscribe!"/>
+  </div>
+  <div class="form-group">
+    <label for="activate-btn2">Click to subscribe to custom Obervable</label>
+    <input type="button" id="activate-btn2" class="form-control btn btn-primary" (click)="createCustomObservable()" value="Subscribe!"/>
+  </div>
+  <div class="form-group">
+    <label for="activate-btn3">Click to subscribe to a mapped Observable (n*2)</label>
+    <input type="button" id="activate-btn3" class="form-control btn btn-primary" (click)="operatorsExampleWithMap()" value="Subscribe!"/>
+  </div>
+</form>
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<h3>ForkJoin() Example</h3>
+<h4>Combine all HTTP calls. Can be used to call N number of HTTP calls parallelly and get all response in single array.</h4>
+
+<h4>Click to call getEmployees and getUsers parallelly : <button (click)="getList()">GET</button></h4>
+
+<h1 *ngIf="isLoading">Loading...</h1>
+
+<div *ngIf="!isLoading">
+<p>{{userList | json}}</p>
+<p>{{employeeList | json}}</p>
+
+<table class="table">
+    <tr *ngFor="let emp of empLastList; index as i">
+        <td>{{i}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.first_name}}</td>
+        <td>{{emp.last_name}}</td>
+        <td><img [src]="emp.avatar"></td>
+    </tr>
+</table>
+</div>

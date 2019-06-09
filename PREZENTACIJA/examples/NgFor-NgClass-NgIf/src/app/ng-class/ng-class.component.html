@@ -1,0 +1,50 @@
+<h1 class="bg-dark text-white text-center my-4 py-4">NGCLASS EXAMPLE</h1>
+<div class="container bg-dark text-white text-center">
+  <h2>Blue background = {{blueBg}}</h2>
+  <p>(only 2nd paragraph)</p>
+</div>
+<div class="container">
+
+  <button class="btn btn-dark mb-3" (click)="darkBg = 'text-light bg-dark'">Idempotency 1 & 2</button>
+  <button class="btn btn-warning mb-3" (click)="blueBg=!blueBg">Change 2nd paragraph</button>
+  <button class="btn btn-danger mb-3" (click)="active = 'three'">3rd</button>
+  <button class="btn btn-success mb-3" (click)="active = 'four'">4th</button>
+
+  <p class="text-info" [ngClass]="darkBg">Lorem ipsum dolor sit amet consectetur adipiscing elit massa netus ridiculus,
+    enim parturient at ante semper lobortis vitae nisl mauris. Litora placerat donec dictum porta ac tristique dictumst
+    nullam interdum mus risus sed iaculis gravida, congue morbi tortor suscipit proin eros malesuada tempor consequat
+    lacinia hac ornare. Nibh posuere nam dictumst nulla rutrum felis magna dui curabitur, inceptos sagittis aenean cras
+    tempus eu tincidunt.
+  </p>
+  <p class="text-info" [ngClass]="darkBg" *ngIf="!blueBg; else noOriginal">Lorem ipsum dolor sit amet consectetur
+    adipiscing elit massa netus ridiculus, enim parturient at ante semper lobortis vitae nisl mauris. Litora placerat
+    donec dictum porta ac tristique dictumst nullam interdum mus risus sed iaculis gravida, congue morbi tortor
+    suscipit proin eros malesuada tempor consequat lacinia hac ornare. Nibh posuere nam dictumst nulla rutrum felis
+    magna dui curabitur, inceptos sagittis aenean cras tempus eu tincidunt.
+  </p>
+  <ng-template #noOriginal>
+    <p class="bg-primary text-white">Lorem ipsum dolor sit amet consectetur adipiscing elit massa netus ridiculus, enim
+      parturient at ante semper lobortis vitae nisl mauris. Litora placerat donec dictum porta ac tristique dictumst
+      nullam interdum mus risus sed iaculis gravida, congue morbi tortor suscipit proin eros malesuada tempor consequat
+      lacinia hac ornare. Nibh posuere nam dictumst nulla rutrum felis magna dui curabitur, inceptos sagittis aenean
+      cras tempus eu tincidunt.
+    </p>
+  </ng-template>
+  <div class="container bg-dark text-white text-center">
+    <h2>Active = {{active}}</h2>
+    <p>(3rd & 4th paragraphs)</p>
+  </div>
+  <p class="text-danger d-none" [ngClass]="{'d-block':active=='three'}">3rd paragraph: Posuere arcu tempus elementum
+    accumsan a nulla sociis vulputate, aenean lacus habitant ullamcorper scelerisque netus et habitasse laoreet,
+    faucibus dapibus fames est egestas ridiculus dignissim. Urna facilisis velit ornare id magnis posuere inceptos
+    malesuada commodo, a porttitor lacus condimentum libero morbi egestas porta, dictum natoque non etiam ad varius
+    tortor eu. Suspendisse faucibus habitasse enim quis sodales ac ut in, arcu curae penatibus feugiat aenean ornare.
+  </p>
+  <p class="text-success d-none" [ngClass]="{'d-block':active=='four'}">4th paragrah: Lorem ipsum dolor sit amet
+    consectetur adipiscing elit massa netus ridiculus, enim parturient at ante semper lobortis vitae nisl mauris.
+    Litora placerat donec dictum porta ac tristique dictumst nullam interdum mus risus sed iaculis gravida, congue
+    morbi tortor suscipit proin eros malesuada tempor consequat lacinia hac ornare. Nibh posuere nam dictumst nulla
+    rutrum felis magna dui curabitur, inceptos sagittis aenean cras tempus eu tincidunt.
+  </p>
+
+</div>

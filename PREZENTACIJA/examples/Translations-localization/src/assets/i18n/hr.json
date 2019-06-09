@@ -1,0 +1,21 @@
+﻿{
+  "anothervar": "",
+  "app_title": "Moja Aplikacija",
+	"demo": {
+		"greeting": "Dobar dan {name}!",
+		"letsee": "",
+		"title": "Demo Prijevod"
+	},
+  "pluralization": {
+    "things": "Ovdje {count, plural, =0{je} one{je} other{su}} {count, plural, =0{} one{} other{nekoliko}} {count, plural, =0{ništa} one{stvar} other{stvari}}",
+    "people": "{gender, select, male{Njegovo ime je} female{Njeno ime je} other{Njihova imena su }} {name}"
+  },
+  "colors": {
+    "yellow": "žuto",
+    "black": "crno",
+    "red": "crveno",
+    "blue": "plavo",
+    "green": "zeleno",
+    "magenta": "magenta"
+  }
+}

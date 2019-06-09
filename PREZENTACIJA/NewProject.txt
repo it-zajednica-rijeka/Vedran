@@ -1,0 +1,159 @@
+-------------------
+1) SETUP
+-------------------
+[KORAK 0 - OPCIONALNO] 
+ng -v
+
+Ako niste sigurni koja verzija angular-cli je instalirana na Vašem računalu, deinstalirajte.
+npm uninstall -g @angular/cli
+
+Zatim pokrenite (možda će biti potrebno dodati flag: --force)
+npm cache clean
+
+ili, ako koristite verziju npm > 5.
+npm cache verify
+
+ili, možda
+npm update -all
+
+[KORAK 1] 
+Instalirajte specifičnu angular-cli verziju
+npm install -g @angular/cli@ovdje.željena.verzija
+
+[KORAK 2]
+Kreirajte projekt
+ng new you-app-name
+
+Kao rezultat dobiti ćete skeletron app sa željenom angular verzijom,
+te pritom promijenite path kako bi putanja bila u istom direktoriju kao i package.json datoteka.
+
+---------------------------------------
+2) GENERIRANJE MODULA, KOMPONENTI, PIPE ...
+---------------------------------------
+Opis svih komandi sa pripadajućim flag-ovima možete provjeriti na stranici:
+https://angular.io/cli/generate
+
+i prethodno zbog route-a provjerite lazy loading:
+https://angular.io/guide/lazy-loading-ngmodules
+
+[KORAK - 0]
+Generiranje novog projekta sa routing modulom
+ng new customer-app --routing
+
+[KORAK - 1]
+Kreiranje customers feature modula sa routing-om
+ng generate module customers --routing
+
+[KORAK - 2]
+Dodavanje component-e customers feature modulu
+ng generate component customers/customer-list
+
+[KORAK - 3]
+Dodavanje novog orders feature modula sa komponentom
+ng generate module orders --routing
+ng generate component orders/order-list
+
+i home feature modula sa start komponentom
+ng generate module home --routing
+ng generate component home/start
+
+[KORAK - 4]
+Otvoriti datoteku:
+src/app/app.component.html
+
+te dodati slijedeće:
+
+<h1>
+  {{title}}
+</h1>
+
+<button routerLink="/customers">Customers</button>
+<button routerLink="/orders">Orders</button>
+<button routerLink="">Home</button>
+
+<router-outlet></router-outlet>
+
+[KORAK - 5]
+Otvoriti datoteku:
+app-routing.module.ts
+
+i dodati slijedeći kod:
+...
+...
+...
+const routes: Routes = [
+  
+    {path : '', component: StartComponent},
+
+    {path : 'customers', component : CustomerListComponent},
+
+    {path : 'orders', component : OrderListComponent}
+];
+
+
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+...
+...
+...
+
+[KORAK - 6]
+otvoriti datoteku:
+app.module.ts
+
+i dodati gore generirane module:
+...
+...
+...
+@NgModule({
+  
+    declarations: [
+ AppComponent
+ ],
+
+    imports: [
+
+         BrowserModule,
+
+         AppRoutingModule,
+
+         CustomersModule,
+
+         OrdersModule,
+
+         HomeModule,
+
+         HttpClientModule
+  
+    ],
+  
+    providers: [],
+...
+...
+...
+
+[KORAK - 7]
+ng serve
+
+otvoriti browser i upisati adresu:
+http://localhost:4200
+
+
+-----------------------
+3) PACKAGE VERSION SIGN
+-----------------------
+U datoteci package.json možete pronaći specifične "modifiere" a njihovo značenje je:
+
+(caret) ^
+-------
+Ažurira se samo tekuća "major" verzija, npr.:
+^4.3.0
+npm-om će se učitati 4.x.x release, a nikako 5.x.x
+
+(tilde) ~
+-------
+Ažurira se samo tekuća "minor" verzija po drugom broju u nizu, npr.:
+~4.3.0
+npm-om će se učitati 4.3.x release, a nikako 4.4.x
+

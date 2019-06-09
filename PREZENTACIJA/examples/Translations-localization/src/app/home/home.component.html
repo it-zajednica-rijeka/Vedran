@@ -1,0 +1,42 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title | translate }}! Color is <b [style.color]="color.code">{{ color.text | translate }}</b>
+    <br>
+    {{ 'app_title' | translate }}
+  </h1>
+  <p>{{ 'demo.greeting' | translate: {'name':'Manolo!'} }}</p>
+  <p>{{ 'demo.letsee' | translate: {'param1': 'algo', 'param2': 'algo2'} }}</p>
+  <p>{{ myDate | date : 'fullDate' : 'hr-HR' | lowercase }}</p>
+  <p>{{ myLocalDate }}</p>
+  <p>{{ myLocalNumber }}</p>
+  <p>{{ myNumber | currency: 'EUR': true }}</p>
+  <p>{{ myNumber | number : '4.3-5' : 'hr'}}</p>
+  <button (click)="changeColor();">Change color</button>
+  <button (click)="useLanguage('en')">english</button>
+  <button (click)="useLanguage('es')">castellano</button>
+  <button (click)="useLanguage('hr')">hrvatski</button>
+  <br />
+  <h3>pluralization</h3>
+  <ul>
+    <li translate [translateParams]="{ count: 0 }">pluralization.things</li>
+    <li translate [translateParams]="{ count: 1 }">pluralization.things</li>
+    <li>{{'pluralization.things' | translate:"{ count: 2 }"}}</li>
+  </ul>
+  <ul>
+    <li translate [translateParams]="{ gender: 'female', name: 'Sarah', count: '1' }">pluralization.people</li>
+    <li translate [translateParams]="{ gender: 'male', name: 'Peter', count: '1' }">pluralization.people</li>
+    <li>{{'pluralization.people' | translate:"{ name: 'Sarah + Peter', count: '2' }"}}</li>
+  </ul>
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>

@@ -1,0 +1,20 @@
+{
+  "app_title": "Mio Applicativo",
+  "demo": {
+    "title": "Demo traducción",
+    "text": "Hola amigo!",
+    "greeting": "Hola {name}"
+  },
+  "pluralization": {
+    "things": "{count, plural, =0{No hay} one{Hay un} other{Hay muchos} } {count, plural, =0{nada} one{elemento} other{elementos}}, ",
+    "people": "{count, plural, one{El nombre de} other{Los nombres de} } {gender, select, male{él es} female{ella es} other{ellos son}} {name}"
+  },
+  "colors": {
+    "yellow": "amarillo",
+    "black": "negro",
+    "red": "rojo",
+    "blue": "azul",
+    "green": "verde",
+    "magenta": "magenta"
+  }
+}
