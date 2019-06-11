@@ -12,6 +12,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
 
   public isLoading = false;
   public userList: any[];
+  public pages: any[];
   public joinCallObservable;
   public listFilter = '';
 
@@ -43,6 +44,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
     this.joinCallObservable = forkJoin(getUsers)
       .pipe(map((responseArray: [any[]]) => {
           this.userList = responseArray[0];
+          this.pages = Array.from({length: 4}, (v, k) => k + 1);
       }));
   }
 

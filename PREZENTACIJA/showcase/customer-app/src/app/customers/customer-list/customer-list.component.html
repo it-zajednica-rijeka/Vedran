@@ -1,8 +1,21 @@
 <div class="m-4">
-  <button class="m-2" (click)="getList(4)">Str 1</button>
-  <button class="m-2" (click)="getList(4, 2)">Str 2</button>
-  <button class="m-2" (click)="getList(4, 3)">Str 3</button>
-  <button class="m-2" (click)="getList(4, 4)">Str 4</button>
+  <ul *ngIf="userList?.total_pages" class="pagination">
+    <li class="page-item" [ngClass]="{disabled:userList?.page === 1}">
+      <a class="page-link" (click)="getList(2)">First</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:userList?.page === 1}">
+      <a class="page-link" (click)="getList(2, userList?.page - 1)">Previous</a>
+    </li>
+    <li class="page-item" *ngFor="let page of pages" [ngClass]="{active: userList.page === page}">
+      <a class="page-link" (click)="getList(2, page)">{{page}}</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:userList?.page === userList?.total_pages}">
+      <a class="page-link" (click)="getList(2, userList?.page + 1)">Next</a>
+    </li>
+    <li class="page-item" [ngClass]="{disabled:userList?.page === userList?.total_pages}">
+      <a class="page-link" (click)="getList(2, userList?.total_pages)">Last</a>
+    </li>
+  </ul>
 
   <h4 *ngIf="isLoading">Loading...</h4>
 

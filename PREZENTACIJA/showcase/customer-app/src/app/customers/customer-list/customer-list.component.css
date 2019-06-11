@@ -1,3 +1,7 @@
 .red-color {
     color: red;
 }
+
+li {
+    cursor: pointer;
+}
