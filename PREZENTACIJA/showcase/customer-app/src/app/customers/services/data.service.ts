@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,19 @@ export class DataService {
 
   public getEmployees(): Observable<any[]> | Promise<any[]> {
     return this.httpClient
-               .get('http://dummy.restapiexample.com/api/v1/employees')
+			         .get(`${environment.dummyRestApi}/${'api/v1/employees'}`)
                .pipe(map((res: any[]) => res));
   }
 
   public getUsers(delay: number = 10, page: number = 1): Observable<any[]> | Promise<any[]> {
     return this.httpClient
-               .get('https://reqres.in/api/users?delay=' + delay.toString() + '&page=' + page.toString())
+			         .get(`${environment.reqresRestApi}/${'api/users?'}${'delay='}${delay}${'&page='}${page}`)
                .pipe(map((res: any[]) => res));
   }
 
   public getCustomers(): Observable<any[]> {
     return this.httpClient
-               .get('https://jsonplaceholder.typicode.com/users')
+			         .get(`${environment.jsonPlaceholderRestApi}/${'users'}`)
                .pipe(map((res: any[]) => res));
   }
 

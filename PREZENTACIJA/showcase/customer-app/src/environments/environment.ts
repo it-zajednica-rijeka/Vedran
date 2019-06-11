@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dummyRestApi: 'http://dummy.restapiexample.com',
+  reqresRestApi: 'https://reqres.in',
+  jsonPlaceholderRestApi: 'https://jsonplaceholder.typicode.com'
 };
 
 /*
