@@ -1,0 +1,68 @@
+﻿{
+  "BACK_BUTTON_TEXT": "Nazad",
+
+  "NAME": "Naziv",
+  "EMAIL": "Email",
+  "USERNAME": "Korisničko ime",
+  "PASSWORD": "Zaporka",
+  "LOGIN": "Login",
+  "SIGNUP": "Registracija",
+
+  "TAB1_TITLE": "Items",
+  "TAB2_TITLE": "Traži",
+  "TAB3_TITLE": "Postavke",
+
+  "MAP_TITLE": "Mapa",
+
+  "TUTORIAL_SKIP_BUTTON": "Preskoči",
+  "TUTORIAL_CONTINUE_BUTTON": "Nastavi",
+
+  "TUTORIAL_SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
+
+  "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+
+  "TUTORIAL_SLIDE3_TITLE": "Getting Started",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
+
+  "TUTORIAL_SLIDE4_TITLE": "Spremni za početak?",
+
+  "WELCOME_INTRO": "The starting point for your next great Ionic app",
+
+  "SETTINGS_TITLE": "Postavke",
+  "SETTINGS_OPTION1": "Opcija 1",
+  "SETTINGS_OPTION2": "Opcija 2",
+  "SETTINGS_OPTION3": "Opcija 3",
+  "SETTINGS_OPTION4": "Opcija 4",
+
+  "SETTINGS_PROFILE_BUTTON": "Ažuriraj Profil",
+
+  "SETTINGS_PAGE_PROFILE": "Ažuriraj Profil",
+
+  "WELCOME_TITLE": "Dobrodošli",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
+  "LOGIN_BUTTON": "Login",
+  "SIGNUP_TITLE": "Registracija",
+  "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
+  "SIGNUP_BUTTON": "Registracija",
+
+  "LIST_MASTER_TITLE": "Items",
+
+  "ITEM_CREATE_TITLE": "New Item",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Dodaj Sliku",
+
+  "ITEM_NAME_PLACEHOLDER": "Naziv",
+  "ITEM_ABOUT_PLACEHOLDER": "O Nama",
+
+  "DONE_BUTTON": "Done",
+  "CANCEL_BUTTON": "Otkaži",
+  "DELETE_BUTTON": "Obriši",
+
+  "CARDS_TITLE": "Social",
+
+  "SEARCH_TITLE": "Traži",
+  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\""
+}
