@@ -52,16 +52,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 
   getProducts() {
     this.productsLoading = true;
-    /* VEKY
-    this.productsCacheService
-      .get('products', this.productService.getProducts())
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((products) => {
-        this.products = <Product[]>products;
-        this.setPage(this.currentPagingPage);
-        this.productsLoading = false;
-      });
-    VEKY */
+
     this.productService.getProducts()
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe((products) => {

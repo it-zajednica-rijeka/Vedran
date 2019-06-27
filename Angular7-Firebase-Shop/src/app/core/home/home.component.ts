@@ -33,14 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    /* VEKY
-    this.productsCache
-      .get('products', this.productService.getProducts())
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((products) => {
-        this.products = <Product[]>products;
-      });
-    VEKY */
+
     this.productService.getProducts()
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe((products) => {

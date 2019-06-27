@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Params } from '@angular/router/src/shared';
 
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject, Subscription, Observable } from 'rxjs';
+import { takeUntil, map, mergeMap } from 'rxjs/operators';
 
 import { AuthService } from '../../account/shared/auth.service';
 import { CartService } from '../../cart/shared/cart.service';
@@ -23,6 +23,7 @@ import { User } from '../../models/user.model';
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
+
   @Input() public product: Product;
   public productLoading: boolean;
 
@@ -71,21 +72,23 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.productLoading = true;
 
     const id = +this.route.snapshot.paramMap.get('id');
-
-    /* VEKY
-    this.productsCacheService
-      .get(id, this.productService.getProducts())
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((product: Product) => {
-        if (product) {
-          this.product = product;
-          this.setupProduct();
-          this.productLoading = false;
-        } else {
-          this.router.navigate(['/404-product-not-found']);
-        }
-      });
-    VEKY */
+    this.productService.getProduct(id)
+                      .pipe(takeUntil(this.unsubscribe$))
+                      .subscribe(
+                          (product: Product) => {
+                             // Called when success
+                             this.product = product;
+                             this.setupProduct();
+                             this.productLoading = false;
+                          },
+                          (error) => {
+                            // Called when error
+                            this.router.navigate(['/404-product-not-found']);
+                          },
+                          () => {
+                            this.productLoading = false;
+                          }
+                      );
   }
 
   public onSelectThumbnail(event, index) {
